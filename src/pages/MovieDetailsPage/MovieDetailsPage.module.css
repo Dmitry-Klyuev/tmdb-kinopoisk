@@ -1,0 +1,130 @@
+.page {
+  width: min(1240px, 100%);
+  margin: 0 auto;
+  padding: 28px 0 40px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(220px, 320px) 1fr;
+  gap: 36px;
+  min-height: 620px;
+  padding: 48px;
+  color: #ffffff;
+  background-color: #071120;
+  background-position: center;
+  background-size: cover;
+  border: 1px solid var(--hero-border);
+  border-radius: 32px;
+  box-shadow: var(--hero-shadow);
+}
+
+.posterWrap {
+  overflow: hidden;
+  align-self: start;
+  aspect-ratio: 2 / 3;
+  display: grid;
+  place-items: center;
+  color: var(--muted-text);
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+}
+
+.poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content {
+  align-self: center;
+}
+
+.kicker {
+  margin: 0 0 12px;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.content h1 {
+  margin: 0;
+  font-size: clamp(44px, 7vw, 84px);
+  line-height: 0.94;
+}
+
+.tagline,
+.overview {
+  max-width: 760px;
+  color: #d3e2f5;
+  line-height: 1.7;
+}
+
+.tagline {
+  margin: 16px 0 0;
+  font-size: 22px;
+}
+
+.overview {
+  margin: 22px 0 0;
+  font-size: 18px;
+}
+
+.meta,
+.genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.meta span,
+.genres span {
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+}
+
+.rating {
+  color: #071120;
+  background: #68f2b0 !important;
+  border-color: rgba(255, 255, 255, 0.56) !important;
+  font-weight: 800;
+}
+
+.favoriteButton {
+  min-height: 48px;
+  padding: 0 22px;
+  margin-top: 28px;
+  color: #ffffff;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.favoriteActive {
+  background: #e94d72;
+  border-color: #e94d72;
+}
+
+.state {
+  width: min(1240px, 100%);
+  margin: 0 auto;
+  padding: 80px 0;
+}
+
+@media (max-width: 820px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 28px;
+  }
+
+  .posterWrap {
+    width: min(280px, 100%);
+  }
+}

@@ -119,6 +119,8 @@ export function AppShell() {
       <main className={styles.content}>
         <Outlet />
       </main>
+
+      <footer className={styles.footer}>© {new Date().getFullYear()} Kinopoisk Demo · Data courtesy of TMDB.</footer>
     </div>
   );
 }
