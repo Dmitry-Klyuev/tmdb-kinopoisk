@@ -20,3 +20,21 @@ export type MoviesResponse = {
   total_pages: number;
   total_results: number;
 };
+
+export type MovieDetails = Movie & {
+  budget: number;
+  genres: Array<{
+    id: number;
+    name: string;
+  }>;
+  homepage: string | null;
+  imdb_id: string | null;
+  production_countries: Array<{
+    iso_3166_1: string;
+    name: string;
+  }>;
+  revenue: number;
+  runtime: number | null;
+  status: string;
+  tagline: string | null;
+};

@@ -1,12 +1,8 @@
 import { useSearchParams } from "react-router-dom";
 
-import { getMovieImage } from "../../features/movies/image";
+import { MovieCard } from "../../components/MovieCard/MovieCard";
 import { useSearchMoviesQuery } from "../../features/movies/moviesApi";
 import styles from "./SearchPage.module.css";
-
-function formatReleaseYear(date: string) {
-  return date ? date.slice(0, 4) : "TBA";
-}
 
 export function SearchPage() {
   const [searchParams] = useSearchParams();
@@ -47,30 +43,9 @@ export function SearchPage() {
       )}
 
       <div className={styles.grid}>
-        {data?.results.map((movie) => {
-          const poster = getMovieImage(movie.poster_path, "w500");
-
-          return (
-            <article key={movie.id} className={styles.card}>
-              <div className={styles.posterWrap}>
-                {poster ? (
-                  <img className={styles.poster} src={poster} alt={movie.title} loading="lazy" />
-                ) : (
-                  <div className={styles.posterFallback}>No poster</div>
-                )}
-              </div>
-
-              <div className={styles.cardBody}>
-                <div className={styles.metaRow}>
-                  <span>{formatReleaseYear(movie.release_date)}</span>
-                  <span>Rating {movie.vote_average.toFixed(1)}</span>
-                </div>
-                <h2>{movie.title}</h2>
-                <p>{movie.overview || "Описание для этого фильма пока отсутствует."}</p>
-              </div>
-            </article>
-          );
-        })}
+        {data?.results.map((movie) => (
+          <MovieCard key={movie.id} movie={movie} />
+        ))}
       </div>
     </section>
   );
