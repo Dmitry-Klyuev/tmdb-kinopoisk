@@ -12,7 +12,7 @@ type MovieCardProps = {
 
 export function MovieCard({ movie }: MovieCardProps) {
   const dispatch = useAppDispatch();
-  const isFavorite = useAppSelector((state) => state.favorites.ids.includes(movie.id));
+  const isFavorite = useAppSelector((state) => state.favorites.movies.some((item) => item.id === movie.id));
   const poster = getMovieImage(movie.poster_path, "w500");
   const rating = movie.vote_average.toFixed(1);
   const ratingClass =
@@ -43,9 +43,11 @@ export function MovieCard({ movie }: MovieCardProps) {
         className={isFavorite ? `${styles.favoriteButton} ${styles.favoriteActive}` : styles.favoriteButton}
         type="button"
         aria-pressed={isFavorite}
-        onClick={() => dispatch(toggleFavorite(movie.id))}
+        aria-label={isFavorite ? `Remove ${movie.title} from favorites` : `Add ${movie.title} to favorites`}
+        onClick={() => dispatch(toggleFavorite(movie))}
       >
-        ❤️ Любимые
+        <span aria-hidden="true">❤️</span>
+        <span className={styles.favoriteText}>Любимые</span>
       </button>
     </article>
   );

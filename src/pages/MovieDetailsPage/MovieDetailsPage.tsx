@@ -21,7 +21,7 @@ export function MovieDetailsPage() {
   const { movieId } = useParams();
   const numericMovieId = Number(movieId);
   const dispatch = useAppDispatch();
-  const isFavorite = useAppSelector((state) => state.favorites.ids.includes(numericMovieId));
+  const isFavorite = useAppSelector((state) => state.favorites.movies.some((item) => item.id === numericMovieId));
   const { data: movie, isFetching, isError } = useGetMovieDetailsQuery(numericMovieId, {
     skip: Number.isNaN(numericMovieId)
   });
@@ -94,7 +94,7 @@ export function MovieDetailsPage() {
             className={isFavorite ? `${styles.favoriteButton} ${styles.favoriteActive}` : styles.favoriteButton}
             type="button"
             aria-pressed={isFavorite}
-            onClick={() => dispatch(toggleFavorite(movie.id))}
+            onClick={() => dispatch(toggleFavorite(movie))}
           >
             ❤️ Любимые
           </button>

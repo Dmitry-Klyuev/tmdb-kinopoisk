@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 import type { MovieDetails, MoviesResponse } from "./types";
 
-const API_KEY = (import.meta.env.VITE_API_KEY || import.meta.env.VITE_TMDB_API_KEY).trim();
+const API_KEY = (import.meta.env.VITE_API_KEY || import.meta.env.VITE_TMDB_API_KEY);
 const isBearerToken = API_KEY.startsWith("eyJ");
 const authParams = isBearerToken ? {} : { api_key: API_KEY };
 

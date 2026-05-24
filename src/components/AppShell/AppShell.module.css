@@ -65,6 +65,7 @@
 }
 
 .navLink {
+  position: relative;
   display: inline-flex;
   align-items: center;
   min-height: 34px;
@@ -76,13 +77,20 @@
   text-decoration: none;
   transition:
     color 180ms ease,
-    background-color 180ms ease;
+    background-color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
 }
 
 .navLink:hover,
 .active {
   color: var(--nav-active-text);
   background: var(--nav-active-bg);
+}
+
+.navLink:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(1, 180, 228, 0.14);
 }
 
 .divider {
